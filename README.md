@@ -1,0 +1,1 @@
+Simple MEAN stack app.

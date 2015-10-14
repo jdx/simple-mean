@@ -1,0 +1,9 @@
+{
+  "description": "simple example MEAN app",
+  "repository": "dickeyxxx/simple-mean",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "express": "^4.13.3"
+  }
+}
