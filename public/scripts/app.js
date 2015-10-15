@@ -3,11 +3,31 @@
 angular.module('app', []);
 
 angular.module('app')
-.controller('TodoCtrl', function ($scope) {
-  $scope.todos = ['Get paper', 'Mail rent check', 'Call mom'];
+.controller('TodoCtrl', function ($scope, TodoSvc) {
+  $scope.todos = [{title: 'Get paper'}, {title:'Mail rent check'}];
+
+  $scope.refresh = function () {
+    TodoSvc.fetch()
+    .then(function (todos) {
+      $scope.todos = todos.data;
+    });
+  }
 
   $scope.addTodo = function () {
-    $scope.todos.push($scope.newTodo);
-    $scope.newTodo = '';
+    TodoSvc.add($scope.newTodo);
+    $scope.refresh();
   }
+
+  $scope.refresh();
+});
+
+angular.module('app')
+.service('TodoSvc', function ($http) {
+  this.fetch = function () {
+    return $http.get('/api/todos');
+  };
+
+  this.add = function (todo) {
+    return $http.post('/api/todos', todo);
+  };
 });
