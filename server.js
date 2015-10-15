@@ -8,6 +8,8 @@ app.get('/', function (req, res) {
   res.render('index.html.ejs');
 });
 
+app.use(express.static('public'));
+
 // listen on $PORT or 3000
 // this makes the app work on heroku
 app.listen(process.env.PORT || 3000);
