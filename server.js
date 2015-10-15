@@ -1,7 +1,7 @@
 'use strict';
 
 let mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/todo');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/todo');
 
 let Todo = mongoose.model('Todo', {title: String});
 
