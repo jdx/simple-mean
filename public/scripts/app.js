@@ -15,6 +15,7 @@ angular.module('app')
 
   $scope.addTodo = function () {
     TodoSvc.add($scope.newTodo);
+    $scope.newTodo = {};
     $scope.refresh();
   }
 
