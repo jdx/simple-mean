@@ -12,9 +12,11 @@ angular.module('app')
   }
 
   $scope.addTodo = function () {
-    TodoSvc.add($scope.newTodo);
-    $scope.newTodo = {};
-    $scope.refresh();
+    TodoSvc.add($scope.newTodo)
+    .then(function () {
+      $scope.newTodo = {};
+      $scope.refresh();
+    });
   }
 
   $scope.refresh();
