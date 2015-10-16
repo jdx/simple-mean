@@ -4,8 +4,6 @@ angular.module('app', []);
 
 angular.module('app')
 .controller('TodoCtrl', function ($scope, TodoSvc) {
-  $scope.todos = [{title: 'Get paper'}, {title:'Mail rent check'}];
-
   $scope.refresh = function () {
     TodoSvc.fetch()
     .then(function (todos) {
